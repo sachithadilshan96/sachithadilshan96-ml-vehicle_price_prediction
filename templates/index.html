@@ -1,0 +1,172 @@
+{% load static %}
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="{% static 'css/all.css' %}">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+  <!-- Custom -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="stylesheet" href="{% static 'css/modals.scss' %}">
+  <!-- Lightbox -->
+  <link rel="stylesheet" href="{% static 'css/lightbox.min.css' %}">
+  <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+
+
+  <script src="https://use.fontawesome.com/releases/v5.13.0/js/all.js" crossorigin="anonymous">
+
+  </script>
+  <script>
+  function resetForm() {
+    document.getElementById("search").reset();
+  }
+  </script>
+  <!DOCTYPE HTML>
+
+
+
+
+
+
+
+  <!-- Google fonts-->
+  <link href="https://fonts.googleapis.com/css?family=Merriweather+Sans:400,700" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic,700,700italic" rel="stylesheet" type="text/css" />
+  <!-- Third party plugin CSS-->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/magnific-popup.js/1.1.0/magnific-popup.min.css" rel="stylesheet" />
+  <!-- Core theme CSS (includes Bootstrap)-->
+  <link rel="stylesheet" href="{% static 'css/navstyles.css' %}">
+  <!-- favicon -->
+  <link rel="icon" href="#"/>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+ integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+ crossorigin=""/>
+
+ <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+ integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+ crossorigin=""></script>
+
+
+
+  <title> Vehicle Price Prediction</title>
+</head>
+
+<body>
+
+
+
+
+
+
+
+    <div class="row justify-content-center mt-12 " style="background-image: url('{% static '/img/imgx.jpeg' %}');background-size: cover;height: 100%;">
+
+      <div class="col-md-6 "  >
+  			<div class="contact-info">
+          <br>
+          <br>
+          <h1><b>&nbsp;	&nbsp;	<i class="fas fa-car"></i>	&nbsp;Vehicle Price Predictor</b></h1>
+
+          <h6>	&nbsp;	&nbsp;	&nbsp;&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;	&nbsp;Enter required fields to estimate your vehicle price</h6>
+          <br>
+
+
+
+        </div>
+  		</div>
+
+      <div class="col-md-6 myDiv">
+
+        {% if error %}
+        <div class="alert alert-danger" role="alert">
+          {{ error }}
+        </div>
+        {% endif %}
+        <br>
+        <h3> </h3>
+        <br>
+        <form method="post" action="" enctype="multipart/form-data">
+
+          {% csrf_token %}
+          {% csrf_token %}
+
+          <div class="row">
+            <div class="col-6">
+              {{ form.type|as_crispy_field }}
+            </div>
+            <div class="col-6">
+              {{ form.year|as_crispy_field }}
+            </div>
+          </div>
+          <br>
+
+
+          <div class="row">
+            <div class="col-6">
+              {{ form.manuf|as_crispy_field }}
+            </div>
+            <div class="col-6">
+              {{ form.condition|as_crispy_field }}
+            </div>
+          </div>
+          <br>
+
+          <div class="row">
+            <div class="col-6">
+              {{ form.cylinders|as_crispy_field }}
+            </div>
+            <div class="col-6">
+              {{ form.fuel|as_crispy_field }}
+            </div>
+          </div>
+          <br>
+
+          <div class="row">
+            <div class="col-6">
+              {{ form.odometer|as_crispy_field }}
+            </div>
+            <div class="col-6">
+              {{ form.transmission|as_crispy_field }}
+            </div>
+          </div>
+
+          <br>
+
+
+
+
+
+
+          <button type="submit" class="btn btn-info button" value="save" > <i class="fas fa-tachometer-alt"></i> 	&nbsp;	&nbsp;Predict </button>
+
+
+          <br>
+          <br
+        </form>
+
+      </div>
+
+    </div>
+
+
+
+
+
+
+
+
+  <script src="{% static 'js/jquery-3.3.1.min.js' %} "></script>
+  <script src="{% static 'js/bootstrap.bundle.min.js' %} "></script>
+  <script src="{% static 'js/lightbox.min.js' %} "></script>
+  <script src="{% static 'js/main.js' %} "></script>
+  <script src="{% static 'js/navscripts.js' %} "></script>
+</body>
+
+</html>
